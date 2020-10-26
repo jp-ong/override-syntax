@@ -1,0 +1,84 @@
+@import "roboto";
+@import "config";
+
+::-webkit-scrollbar {
+  width: 0;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html {
+  width: 100vw;
+  overflow-x: hidden;
+}
+
+body {
+  background-color: $primary;
+  color: $white;
+
+  font-family: $sans;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+input,
+textarea {
+  outline: none;
+  border: none;
+
+  font-family: $sans;
+}
+
+button {
+  outline: none;
+  border: none;
+  cursor: pointer;
+  transition: 250ms;
+}
+
+button:hover {
+  filter: brightness(1.25);
+}
+
+a {
+  color: $white;
+  text-decoration: none;
+}
+
+.container {
+  padding: 1rem;
+}
+
+img.brand {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  transition: 250ms;
+  &:hover {
+    filter: brightness(1.25);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  ::before,
+  ::after {
+    animation-delay: -1ms !important;
+    animation-duration: 1ms !important;
+    animation-iteration-count: 1 !important;
+    background-attachment: initial !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0s !important;
+    transition-delay: 0s !important;
+  }
+}
+
+@import "animations";
+@import "spinner";
+@import "navbar";
+@import "homepage";

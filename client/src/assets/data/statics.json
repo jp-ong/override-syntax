@@ -1,0 +1,28 @@
+{
+  "categories": {
+    "keyboard": {
+      "title": "keyboard",
+      "icon": "https://i.imgur.com/0tnnORZ.jpg"
+    },
+    "mouse": {
+      "title": "mouse",
+      "icon": "https://i.imgur.com/u6ZgzGk.jpg"
+    },
+    "gamepad": {
+      "title": "gamepad",
+      "icon": "https://i.imgur.com/4X7b1CG.jpg"
+    },
+    "headset": {
+      "title": "headset",
+      "icon": "https://i.imgur.com/5IbzKn9.jpg"
+    },
+    "mousepad": {
+      "title": "mousepad",
+      "icon": "https://i.imgur.com/SwG6kFs.jpg"
+    },
+    "monitor": {
+      "title": "monitor",
+      "icon": "https://i.imgur.com/VeSbLh7.jpg"
+    }
+  }
+}

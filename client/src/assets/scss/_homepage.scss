@@ -1,0 +1,98 @@
+.home {
+  &-icons {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 1rem;
+
+    &-icon {
+      position: relative;
+
+      width: 100%;
+      height: 17.5em;
+
+      outline: solid 1px $primary;
+      box-shadow: $shadow;
+
+      cursor: pointer;
+      transition: 125ms ease-in-out;
+      z-index: 50;
+
+      &-image {
+        position: relative;
+
+        width: 100%;
+        height: 100%;
+
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+
+        overflow: hidden;
+
+        &:after {
+          content: "";
+          position: absolute;
+          top: -50%;
+          left: -60%;
+          width: 20%;
+          height: 200%;
+          opacity: 0;
+          transform: rotate(30deg);
+
+          background: rgba(255, 255, 255, 0.13);
+          background: linear-gradient(
+            to right,
+            rgba(255, 255, 255, 0.13) 0%,
+            rgba(255, 255, 255, 0.13) 17%,
+            rgba(255, 255, 255, 0.13) 92%,
+            rgba(255, 255, 255, 0) 100%
+          );
+        }
+
+        &:hover:after {
+          opacity: 1;
+          left: 130%;
+          transition-property: left, top, opacity;
+          transition-duration: 375ms;
+          transition-timing-function: ease;
+        }
+      }
+
+      &-title {
+        position: absolute;
+
+        left: 0;
+        right: 0;
+        bottom: 0;
+
+        height: 10%;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        background-color: transparentize($color: $dark, $amount: 0.25);
+
+        transition: 250ms;
+
+        & > span {
+          font-size: 2vmin;
+          font-weight: 700;
+          text-transform: uppercase;
+        }
+      }
+
+      &:hover {
+        outline-color: $dark;
+
+        transform: scale(1.05);
+        filter: brightness(1.25) contrast(1.1) saturate(1.125);
+
+        z-index: 51;
+        .home-icons-icon-title {
+          background-color: $dark;
+        }
+      }
+    }
+  }
+}
