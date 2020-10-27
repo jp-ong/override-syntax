@@ -14,6 +14,6 @@ export const fetchItems = () => (dispatch) => {
       dispatch({ type: FETCH_ITEMS, payload: response.data.items });
     })
     .catch(({ response }) => {
-      window.location.reload("/");
+      window.location.replace("/");
     });
 };
