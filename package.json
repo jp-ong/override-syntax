@@ -1,7 +1,7 @@
 {
-  "name": "logitech-syntax",
+  "name": "overred-syntax",
   "version": "1.0.0",
-  "description": "Logitech Gaming eCommerce System",
+  "description": "Override Gaming eCommerce System",
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
