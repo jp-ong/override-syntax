@@ -54,6 +54,8 @@ export const authUser = () => (dispatch) => {
 };
 
 export const loginUser = (credentials) => (dispatch) => {
+  dispatch(setLoading());
+
   const postBody = {
     email: credentials.email,
     password: credentials.password,
@@ -78,6 +80,8 @@ export const loginUser = (credentials) => (dispatch) => {
 };
 
 export const registerUser = (credentials) => (dispatch) => {
+  dispatch(setLoading());
+
   const postBody = {
     fullname: {
       firstname: credentials.firstname,

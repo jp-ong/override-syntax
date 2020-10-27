@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import Spinner from "../Spinner";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { registerUser, clearErrors } from "../../redux/actions/userActions";
@@ -22,6 +23,12 @@ export class Register extends Component {
     this.props.clearErrors();
   }
 
+  componentDidUpdate() {
+    document.querySelector(
+      "button#register"
+    ).disabled = this.props.user.user_loading;
+  }
+
   tick = ({ target }) => {
     this.setState({
       [target.name]: target.value,
@@ -34,7 +41,7 @@ export class Register extends Component {
 
   render() {
     const { firstname, lastname, email, password, password2 } = this.state;
-    const { error } = this.props.user;
+    const { error, user_loading } = this.props.user;
     return (
       <>
         <div className="verify-form-header">
@@ -78,9 +85,19 @@ export class Register extends Component {
           />
         </div>
         <div className="verify-form-button">
-          <button onClick={this.buttonClicked}>REGISTER</button>
+          <button
+            id="register"
+            onClick={this.buttonClicked}
+            className={user_loading ? "disabled" : ""}
+          >
+            REGISTER
+          </button>
         </div>
-        {error ? (
+        {user_loading ? (
+          <div className="verify-form-spinner">
+            <Spinner />
+          </div>
+        ) : error ? (
           <div className="verify-form-feedback">
             <span className="error-feedback">{error}</span>
           </div>

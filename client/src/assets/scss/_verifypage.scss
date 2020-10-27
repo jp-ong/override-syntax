@@ -99,6 +99,12 @@
         color: white;
 
         font-weight: 700;
+
+        &.disabled {
+          opacity: 0.25;
+          cursor: none;
+          pointer-events: none;
+        }
       }
     }
 
@@ -121,6 +127,15 @@
       & > span {
         font-size: 0.75rem;
       }
+    }
+
+    &-spinner {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 2rem;
+      margin-bottom: -2rem;
     }
   }
 }
