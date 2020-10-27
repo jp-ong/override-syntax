@@ -1,28 +1,68 @@
 {
   "categories": {
-    "keyboard": {
-      "title": "keyboard",
+    "keyboards": {
+      "title": "keyboards",
       "icon": "https://i.imgur.com/0tnnORZ.jpg"
     },
-    "mouse": {
-      "title": "mouse",
+    "mice": {
+      "title": "mice",
       "icon": "https://i.imgur.com/u6ZgzGk.jpg"
     },
-    "gamepad": {
-      "title": "gamepad",
+    "gamepads": {
+      "title": "gamepads",
       "icon": "https://i.imgur.com/4X7b1CG.jpg"
     },
-    "headset": {
-      "title": "headset",
+    "headsets": {
+      "title": "headsets",
       "icon": "https://i.imgur.com/5IbzKn9.jpg"
     },
-    "mousepad": {
-      "title": "mousepad",
+    "mousepads": {
+      "title": "mousepads",
       "icon": "https://i.imgur.com/SwG6kFs.jpg"
     },
-    "monitor": {
-      "title": "monitor",
+    "monitors": {
+      "title": "monitors",
       "icon": "https://images.unsplash.com/photo-1565896311009-382b9e813b19?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1868&q=80"
     }
+  },
+  "tags": {
+    "mice": [
+      "POWERPLAY",
+      "Corded",
+      "Battery",
+      "LIGHTSPEED Wireless",
+      "Bluetooth",
+      "HERO Sensor",
+      "Wired",
+      "LIGHTSYNC RGB",
+      "Weights"
+    ],
+    "keyboards": [
+      "LIGHTSPEED Wireless",
+      "Bluetooth",
+      "Wired",
+      "Programmable G-Keys",
+      "Tactile",
+      "Clicky",
+      "Linear",
+      "Mechanical",
+      "Low Profile",
+      "LIGHTSYNC RGB",
+      "Dedicated Media Controls",
+      "Tenkeyless",
+      "Palmrest",
+      "USB Passthrough",
+      "Smart Cable Routing"
+    ],
+    "headsets": [
+      "DTS Surround Sound Technology",
+      "BLUE V0!CE Mic Technology",
+      "Pro-G Drivers",
+      "Wired USB Input",
+      "3.5mm Audio Input",
+      "LIGHTSYNC RGB",
+      "Microphone"
+    ],
+    "mousepads": ["Cloth", "Hard", "Extra Large", "Large", "Medium"]
   }
 }

@@ -27,6 +27,12 @@ export class AccountPassword extends Component {
     });
   };
 
+  keyDown = (e) => {
+    if (e.key === "Enter") {
+      this.props.editPassword(this.state);
+    }
+  };
+
   buttonClicked = () => {
     this.props.editPassword(this.state);
   };
@@ -50,6 +56,7 @@ export class AccountPassword extends Component {
                 placeholder="Current Password"
                 value={this.state.old_password}
                 onChange={this.tick}
+                onKeyDown={this.keyDown}
               />
               <input
                 type="password"
@@ -57,6 +64,7 @@ export class AccountPassword extends Component {
                 placeholder="New Password"
                 value={this.state.new_password}
                 onChange={this.tick}
+                onKeyDown={this.keyDown}
               />
               <input
                 type="password"
@@ -64,6 +72,7 @@ export class AccountPassword extends Component {
                 placeholder="Confirm Password"
                 value={this.state.dup_password}
                 onChange={this.tick}
+                onKeyDown={this.keyDown}
               />
             </div>
           </div>

@@ -8,6 +8,7 @@ import NavBar from "./components/navbar/NavBar";
 import Home from "./components/home/Home";
 import Verify from "./components/verify/Verify";
 import Account from "./components/account/Account";
+import Store from "./components/store/Store";
 
 const App = () => {
   return (
@@ -32,9 +33,16 @@ const App = () => {
             <NavBar />
           </Route>
 
-          <Route exact path="/store/:category">
-            <NavBar />
-          </Route>
+          <Route
+            exact
+            path="/store/:category"
+            render={(props) => (
+              <>
+                <NavBar />
+                <Store {...props} />
+              </>
+            )}
+          />
 
           <Route exact path="/item/:id">
             <NavBar />

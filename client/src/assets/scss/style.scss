@@ -52,6 +52,7 @@ button {
   outline: none;
   border: none;
   cursor: pointer;
+  user-select: none;
   transition: 250ms;
 }
 
@@ -66,6 +67,7 @@ a {
 
 .container {
   padding: 1rem;
+  margin-top: 1rem;
 }
 
 img.brand {
@@ -73,6 +75,7 @@ img.brand {
   max-height: 100%;
   width: auto;
   height: auto;
+  user-select: none;
   transition: 250ms;
   &:hover {
     filter: brightness(1.25) saturate(1.25);
@@ -99,3 +102,4 @@ img.brand {
 @import "homepage";
 @import "verifypage";
 @import "accountpage";
+@import "storepage";

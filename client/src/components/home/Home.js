@@ -22,8 +22,7 @@ class Home extends Component {
   }
 
   render() {
-    const { statics, statics_loading } = this.props.statics;
-    const { categories } = statics;
+    const { categories, statics_loading } = this.props.statics;
 
     return (
       <Container>

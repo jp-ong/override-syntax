@@ -63,6 +63,7 @@ export const authUser = () => (dispatch) => {
 };
 
 export const loginUser = (credentials) => (dispatch) => {
+  dispatch({ type: CLEAR_FEEDBACK });
   dispatch(setLoading());
 
   const postBody = {
@@ -92,6 +93,7 @@ export const loginUser = (credentials) => (dispatch) => {
 };
 
 export const registerUser = (credentials) => (dispatch) => {
+  dispatch({ type: CLEAR_FEEDBACK });
   dispatch(setLoading());
 
   const postBody = {

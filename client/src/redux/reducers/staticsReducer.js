@@ -2,7 +2,8 @@ import { STATICS_LOADING, FETCH_STATICS } from "../types/staticsTypes";
 
 const initialState = {
   statics_loading: false,
-  statics: {},
+  categories: {},
+  tags: {},
 };
 
 export default (state = initialState, action) => {
@@ -11,7 +12,12 @@ export default (state = initialState, action) => {
     case STATICS_LOADING:
       return { ...state, statics_loading: true };
     case FETCH_STATICS:
-      return { ...state, statics: payload, statics_loading: false };
+      return {
+        ...state,
+        categories: payload.categories,
+        tags: payload.tags,
+        statics_loading: false,
+      };
     default:
       return { ...state };
   }

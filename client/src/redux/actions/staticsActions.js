@@ -8,5 +8,8 @@ const setLoading = () => {
 
 export const fetchStatics = () => (dispatch) => {
   dispatch(setLoading());
-  dispatch({ type: FETCH_STATICS, payload: statics });
+  dispatch({
+    type: FETCH_STATICS,
+    payload: { categories: statics.categories, tags: statics.tags },
+  });
 };
