@@ -32,6 +32,12 @@ export class Login extends Component {
     });
   };
 
+  keyDown = (e) => {
+    if (e.key === "Enter") {
+      this.props.loginUser(this.state);
+    }
+  };
+
   buttonClicked = () => {
     this.props.loginUser(this.state);
   };
@@ -51,6 +57,7 @@ export class Login extends Component {
             value={email}
             placeholder="Email@address.com"
             onChange={this.tick}
+            onKeyDown={this.keyDown}
           />
           <input
             type="password"
@@ -58,6 +65,7 @@ export class Login extends Component {
             value={password}
             placeholder="Password"
             onChange={this.tick}
+            onKeyDown={this.keyDown}
           />
         </div>
         <div className="verify-form-button">

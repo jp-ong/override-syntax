@@ -25,12 +25,27 @@ body {
   font-weight: 400;
 }
 
-input,
-textarea {
+input {
   outline: none;
   border: none;
 
   font-family: $sans;
+
+  width: 100%;
+
+  padding: 0 0.5rem;
+
+  background-color: darken($color: $primary, $amount: 3.5);
+  color: $white;
+  border-bottom: solid 1px $dark;
+  box-shadow: $shadow;
+
+  font-weight: 500;
+  transition: 250ms;
+  &:focus {
+    border-color: $secondary;
+    filter: brightness(1.125);
+  }
 }
 
 button {
@@ -83,3 +98,4 @@ img.brand {
 @import "navbar";
 @import "homepage";
 @import "verifypage";
+@import "accountpage";

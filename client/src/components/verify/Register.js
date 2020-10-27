@@ -35,6 +35,12 @@ export class Register extends Component {
     });
   };
 
+  keyDown = (e) => {
+    if (e.key === "Enter") {
+      this.props.registerUser(this.state);
+    }
+  };
+
   buttonClicked = () => {
     this.props.registerUser(this.state);
   };
@@ -54,6 +60,7 @@ export class Register extends Component {
             value={firstname}
             placeholder="First Name"
             onChange={this.tick}
+            onKeyDown={this.keyDown}
           />
           <input
             type="text"
@@ -61,6 +68,7 @@ export class Register extends Component {
             value={lastname}
             placeholder="Last Name"
             onChange={this.tick}
+            onKeyDown={this.keyDown}
           />
           <input
             type="email"
@@ -68,6 +76,7 @@ export class Register extends Component {
             value={email}
             placeholder="Email@address.com"
             onChange={this.tick}
+            onKeyDown={this.keyDown}
           />
           <input
             type="password"
@@ -75,6 +84,7 @@ export class Register extends Component {
             value={password}
             placeholder="Password"
             onChange={this.tick}
+            onKeyDown={this.keyDown}
           />
           <input
             type="password"
@@ -82,6 +92,7 @@ export class Register extends Component {
             value={password2}
             placeholder="Confirm Password"
             onChange={this.tick}
+            onKeyDown={this.keyDown}
           />
         </div>
         <div className="verify-form-button">

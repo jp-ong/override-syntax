@@ -67,23 +67,7 @@
       justify-content: center;
 
       & > input {
-        width: 100%;
-        height: 2.75rem;
-
         margin: 0.25rem 0;
-        padding: 0 0.5rem;
-
-        background-color: darken($color: $primary, $amount: 3.5);
-        color: $white;
-        border-bottom: solid 1px $dark;
-        box-shadow: $shadow;
-
-        font-weight: 500;
-        transition: 250ms;
-        &:focus {
-          border-color: $secondary;
-          filter: brightness(1.125);
-        }
       }
     }
 

@@ -19,6 +19,15 @@ const setLoading = () => {
   return { type: USER_LOADING };
 };
 
+export const clearErrors = () => (dispatch) => {
+  dispatch({ type: CLEAR_ERROR });
+};
+
+export const clearUser = () => (dispatch) => {
+  sessionStorage.removeItem("token");
+  dispatch({ type: CLEAR_USER });
+};
+
 export const authUser = () => (dispatch) => {
   dispatch(setLoading());
 
@@ -110,11 +119,11 @@ export const registerUser = (credentials) => (dispatch) => {
     });
 };
 
-export const clearErrors = () => (dispatch) => {
-  dispatch({ type: CLEAR_ERROR });
-};
+export const editProfile = (profile) => (dispatch) => {
+  dispatch(setLoading());
 
-export const clearUser = () => (dispatch) => {
-  sessionStorage.removeItem("token");
-  dispatch({ type: CLEAR_USER });
+  axios
+    .patch("/api/users/profile", profile)
+    .then((response) => console.log(response.data))
+    .catch(({ response }) => console.log(response.data));
 };

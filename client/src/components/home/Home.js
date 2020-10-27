@@ -27,17 +27,19 @@ class Home extends Component {
 
     return (
       <Container>
-        {statics_loading ? (
-          <Spinner />
-        ) : (
-          <div className="home">
+        <div className="home">
+          {statics_loading ? (
+            <div className="home-spinner">
+              <Spinner />
+            </div>
+          ) : (
             <div className="home-icons">
               {Object.values(categories || {}).map(({ icon, title }, index) => {
                 return <HomeIcon key={index} icon={icon} title={title} />;
               })}
             </div>
-          </div>
-        )}
+          )}
+        </div>
       </Container>
     );
   }
