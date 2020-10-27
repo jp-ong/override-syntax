@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Container from "../Container";
+import Spinner from "../Spinner";
 import StoreSearch from "./StoreSearch";
 import StoreCategories from "./StoreCategories";
 import StoreTags from "./StoreTags";
@@ -74,7 +75,7 @@ export class Store extends Component {
       filters_open,
     } = this.state;
     const { categories, tags } = this.props.statics;
-    const { items } = this.props.item;
+    const { items, items_loading } = this.props.item;
     return (
       <Container>
         <div className="store">
@@ -103,13 +104,19 @@ export class Store extends Component {
               <></>
             )}
           </div>
-          <StoreList
-            items={items}
-            active_category={active_category}
-            active_tags={active_tags}
-            active_sort={active_sort}
-            keyword={keyword}
-          />
+          {items_loading ? (
+            <div className="store-spinner">
+              <Spinner />
+            </div>
+          ) : (
+            <StoreList
+              items={items}
+              active_category={active_category}
+              active_tags={active_tags}
+              active_sort={active_sort}
+              keyword={keyword}
+            />
+          )}
         </div>
       </Container>
     );
