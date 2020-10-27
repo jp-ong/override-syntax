@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { editProfile, authUser } from "../../redux/actions/userActions";
+import Spinner from "../Spinner";
 
 export class AccountProfile extends Component {
   static propTypes = {
@@ -33,8 +34,12 @@ export class AccountProfile extends Component {
     });
   };
 
+  buttonClicked = () => {
+    this.props.editProfile(this.state);
+  };
+
   render() {
-    const { user } = this.props.user;
+    const { user, message, error } = this.props.user;
     const { fullname, full_address, mobile_number, birthdate } = user || {};
     const { firstname, lastname } = fullname || {};
     const { house_number, street_name, province, city, district, barangay } =
@@ -149,11 +154,25 @@ export class AccountProfile extends Component {
         </div>
         <div className="account-section-footer">
           <div className="account-section-footer-feedback">
-            <span className="success-feedback">SUCCESS</span>
-            <span className="error-feedback">ERROR</span>
+            {message.profile ? (
+              <span className="success-feedback">{message.profile}</span>
+            ) : (
+              <></>
+            )}
+            {error.profile ? (
+              <span className="error-feedback">{error.profile}</span>
+            ) : (
+              <></>
+            )}
           </div>
           <div className="account-section-footer-control">
-            <button>SAVE CHANGES</button>
+            {message.profile ? (
+              <Spinner />
+            ) : (
+              <button onClick={this.buttonClicked} className="disabled">
+                UPDATE PROFILE
+              </button>
+            )}
           </div>
         </div>
       </div>

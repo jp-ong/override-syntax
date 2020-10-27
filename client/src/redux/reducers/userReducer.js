@@ -11,7 +11,7 @@ import {
   PASSWORD_SUCCESS,
   PASSWORD_ERROR,
   CLEAR_USER,
-  CLEAR_ERROR,
+  CLEAR_FEEDBACK,
 } from "../types/userTypes";
 
 const initialState = {
@@ -36,7 +36,7 @@ export default (state = initialState, action) => {
         ...state,
         token: payload.token || null,
         user: payload.user,
-        message: payload.msg || "",
+        message: payload.message || "",
         status: payload.status,
         logged_in: true,
         user_loading: false,
@@ -51,6 +51,25 @@ export default (state = initialState, action) => {
         logged_in: false,
         user_loading: false,
       };
+    case PROFILE_SUCCESS:
+    case PASSWORD_SUCCESS:
+      return {
+        ...state,
+        user: payload.user,
+        message: payload.message,
+        status: payload.status,
+        error: "",
+        user_loading: false,
+      };
+    case PROFILE_ERROR:
+    case PASSWORD_ERROR:
+      return {
+        ...state,
+        error: payload.error,
+        status: payload.status,
+        message: "",
+        user_loading: false,
+      };
     case CLEAR_USER:
       return {
         ...state,
@@ -60,10 +79,11 @@ export default (state = initialState, action) => {
         logged_in: false,
         user_loading: false,
       };
-    case CLEAR_ERROR:
+    case CLEAR_FEEDBACK:
       return {
         ...state,
         error: "",
+        message: "",
         status: "",
         user_loading: false,
       };

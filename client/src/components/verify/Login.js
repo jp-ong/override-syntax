@@ -2,13 +2,13 @@ import React, { Component } from "react";
 import Spinner from "../Spinner";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import { loginUser, clearErrors } from "../../redux/actions/userActions";
+import { loginUser, clearFeedbacks } from "../../redux/actions/userActions";
 
 export class Login extends Component {
   static propTypes = {
     user: PropTypes.object.isRequired,
     loginUser: PropTypes.func.isRequired,
-    clearErrors: PropTypes.func.isRequired,
+    clearFeedbacks: PropTypes.func.isRequired,
   };
 
   state = {
@@ -17,7 +17,7 @@ export class Login extends Component {
   };
 
   componentDidMount() {
-    this.props.clearErrors();
+    this.props.clearFeedbacks();
   }
 
   componentDidUpdate() {
@@ -81,9 +81,9 @@ export class Login extends Component {
           <div className="verify-form-spinner">
             <Spinner />
           </div>
-        ) : error ? (
+        ) : error.login ? (
           <div className="verify-form-feedback">
-            <span className="error-feedback">{error}</span>
+            <span className="error-feedback">{error.login}</span>
           </div>
         ) : (
           <></>
@@ -97,6 +97,6 @@ const mapStateToProps = (state) => ({
   user: state.user,
 });
 
-const mapDispatchToProps = { loginUser, clearErrors };
+const mapDispatchToProps = { loginUser, clearFeedbacks };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Login);

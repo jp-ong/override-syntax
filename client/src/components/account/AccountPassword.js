@@ -1,12 +1,13 @@
 import React, { Component } from "react";
+import Spinner from "../Spinner";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import { editProfile, authUser } from "../../redux/actions/userActions";
+import { editPassword, authUser } from "../../redux/actions/userActions";
 
 export class AccountPassword extends Component {
   static propTypes = {
     user: PropTypes.object.isRequired,
-    editProfile: PropTypes.func.isRequired,
+    editPassword: PropTypes.func.isRequired,
     authUser: PropTypes.func.isRequired,
   };
 
@@ -26,8 +27,12 @@ export class AccountPassword extends Component {
     });
   };
 
+  buttonClicked = () => {
+    this.props.editPassword(this.state);
+  };
+
   render() {
-    const { user } = this.props.user;
+    const { message, error } = this.props.user;
     return (
       <div className="account-section">
         <div className="account-section-header">
@@ -63,6 +68,27 @@ export class AccountPassword extends Component {
             </div>
           </div>
         </div>
+        <div className="account-section-footer">
+          <div className="account-section-footer-feedback">
+            {message.password ? (
+              <span className="success-feedback">{message.password}</span>
+            ) : (
+              <></>
+            )}
+            {error.password ? (
+              <span className="error-feedback">{error.password}</span>
+            ) : (
+              <></>
+            )}
+          </div>
+          <div className="account-section-footer-control">
+            {message.password ? (
+              <Spinner />
+            ) : (
+              <button onClick={this.buttonClicked}>UPDATE PROFILE</button>
+            )}
+          </div>
+        </div>
       </div>
     );
   }
@@ -72,6 +98,6 @@ const mapStateToProps = (state) => ({
   user: state.user,
 });
 
-const mapDispatchToProps = { editProfile, authUser };
+const mapDispatchToProps = { editPassword, authUser };
 
 export default connect(mapStateToProps, mapDispatchToProps)(AccountPassword);

@@ -16,4 +16,4 @@ export const PASSWORD_SUCCESS = "PASSWORD_SUCCESS";
 export const PASSWORD_ERROR = "PASSWORD_ERROR";
 
 export const CLEAR_USER = "CLEAR_USER";
-export const CLEAR_ERROR = "CLEAR_ERROR";
+export const CLEAR_FEEDBACK = "CLEAR_FEEDBACK";

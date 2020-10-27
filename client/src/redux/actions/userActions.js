@@ -12,15 +12,15 @@ import {
   PASSWORD_SUCCESS,
   PASSWORD_ERROR,
   CLEAR_USER,
-  CLEAR_ERROR,
+  CLEAR_FEEDBACK,
 } from "../types/userTypes";
 
 const setLoading = () => {
   return { type: USER_LOADING };
 };
 
-export const clearErrors = () => (dispatch) => {
-  dispatch({ type: CLEAR_ERROR });
+export const clearFeedbacks = () => (dispatch) => {
+  dispatch({ type: CLEAR_FEEDBACK });
 };
 
 export const clearUser = () => (dispatch) => {
@@ -48,7 +48,7 @@ export const authUser = () => (dispatch) => {
           status: response.data.status,
         },
       });
-      dispatch({ type: CLEAR_ERROR });
+      dispatch({ type: CLEAR_FEEDBACK });
     })
     .catch(({ response }) => {
       dispatch({
@@ -82,7 +82,10 @@ export const loginUser = (credentials) => (dispatch) => {
     .catch(({ response }) => {
       dispatch({
         type: LOGIN_ERROR,
-        payload: { error: response.data.msg, status: response.data.status },
+        payload: {
+          error: { login: response.data.msg },
+          status: response.data.status,
+        },
       });
       sessionStorage.removeItem("token");
     });
@@ -113,17 +116,79 @@ export const registerUser = (credentials) => (dispatch) => {
     .catch(({ response }) => {
       dispatch({
         type: REGISTER_ERROR,
-        payload: { error: response.data.msg, status: response.data.status },
+        payload: {
+          error: { register: response.data.msg },
+          status: response.data.status,
+        },
       });
       sessionStorage.removeItem("token");
     });
 };
 
 export const editProfile = (profile) => (dispatch) => {
+  const token = sessionStorage.getItem("token");
   dispatch(setLoading());
 
   axios
-    .patch("/api/users/profile", profile)
-    .then((response) => console.log(response.data))
-    .catch(({ response }) => console.log(response.data));
+    .patch("/api/users/profile", profile, {
+      headers: {
+        "x-auth-token": token,
+      },
+    })
+    .then((response) => {
+      dispatch({
+        type: PROFILE_SUCCESS,
+        payload: {
+          user: response.data.user,
+          message: { profile: response.data.msg },
+          status: response.data.status,
+        },
+      });
+      setTimeout(() => {
+        window.location.reload();
+      }, 3000);
+    })
+    .catch(({ response }) => {
+      dispatch({
+        type: PROFILE_ERROR,
+        payload: {
+          error: { profile: response.data.msg },
+          status: response.data.status,
+        },
+      });
+    });
+};
+
+export const editPassword = (password) => (dispatch) => {
+  const token = sessionStorage.getItem("token");
+  dispatch(setLoading());
+
+  axios
+    .patch("/api/users/password", password, {
+      headers: {
+        "x-auth-token": token,
+      },
+    })
+    .then((response) => {
+      dispatch({
+        type: PASSWORD_SUCCESS,
+        payload: {
+          user: response.data.user,
+          message: { password: response.data.msg },
+          status: response.data.status,
+        },
+      });
+      setTimeout(() => {
+        window.location.reload();
+      }, 3000);
+    })
+    .catch(({ response }) => {
+      dispatch({
+        type: PASSWORD_ERROR,
+        payload: {
+          error: { password: response.data.msg },
+          status: response.data.status,
+        },
+      });
+    });
 };

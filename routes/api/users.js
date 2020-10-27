@@ -277,7 +277,7 @@ router.patch("/profile", auth, (req, res) => {
       !birthdate &&
       !mobile_number
     )
-      return res.status(200).json({ msg: "Nothing changed." });
+      return res.status(400).json({ msg: "Nothing changed." });
 
     User.findOne({ _id: req.user.id, is_deactivated: false }, (error, user) => {
       if (error) {
@@ -441,7 +441,7 @@ router.patch("/password", auth, (req, res) => {
   }
 });
 
-router.patch("/deactivate", (req, res) => {
+router.patch("/deactivate", auth, (req, res) => {
   User.findOneAndUpdate(
     { _id: req.query.id, is_deactivated: false },
     { is_deactivated: true },
