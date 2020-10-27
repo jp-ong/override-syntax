@@ -6,15 +6,19 @@ import Spinner from "../Spinner";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { fetchStatics } from "../../redux/actions/staticsActions";
+import { authUser } from "../../redux/actions/userActions";
 
 class Home extends Component {
   static propTypes = {
     statics: PropTypes.object.isRequired,
+    user: PropTypes.object.isRequired,
     fetchStatics: PropTypes.func.isRequired,
+    authUser: PropTypes.func.isRequired,
   };
 
   componentDidMount() {
     this.props.fetchStatics();
+    this.props.authUser();
   }
 
   render() {
@@ -41,10 +45,12 @@ class Home extends Component {
 
 const mapStateToProps = (state) => ({
   statics: state.statics,
+  user: state.user,
 });
 
 const mapDispatchToProps = {
   fetchStatics,
+  authUser,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Home);

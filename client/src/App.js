@@ -6,6 +6,7 @@ import store from "./redux/store";
 
 import NavBar from "./components/navbar/NavBar";
 import Home from "./components/home/Home";
+import Verify from "./components/verify/Verify";
 
 const App = () => {
   return (
@@ -18,7 +19,7 @@ const App = () => {
           </Route>
 
           <Route exact path="/verify">
-            <NavBar />
+            <Verify />
           </Route>
 
           <Route exact path="/account">

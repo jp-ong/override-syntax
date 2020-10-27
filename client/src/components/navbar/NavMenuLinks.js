@@ -1,9 +1,16 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 
+import PropTypes from "prop-types";
+import { connect } from "react-redux";
+
 class NavMenuLinks extends Component {
+  static propTypes = {
+    user: PropTypes.object.isRequired,
+  };
   render() {
-    return (
+    const { logged_in } = this.props.user;
+    return logged_in ? (
       <>
         <Link to="/account">
           <span>Account Settings</span>
@@ -18,8 +25,21 @@ class NavMenuLinks extends Component {
           <i className="fas fa-sign-out-alt" />
         </Link>
       </>
+    ) : (
+      <>
+        <Link to="/verify">
+          <span>Login</span>
+          <i className="fas fa-sign-in-alt" />
+        </Link>
+      </>
     );
   }
 }
 
-export default NavMenuLinks;
+const mapStateToProps = (state) => ({
+  user: state.user,
+});
+
+const mapDispatchToProps = {};
+
+export default connect(mapStateToProps, mapDispatchToProps)(NavMenuLinks);

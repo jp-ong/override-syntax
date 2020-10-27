@@ -1,4 +1,4 @@
-import { STATICS_LOADING, FETCH_STATICS } from "../types/staticTypes";
+import { STATICS_LOADING, FETCH_STATICS } from "../types/staticsTypes";
 
 const initialState = {
   statics_loading: false,

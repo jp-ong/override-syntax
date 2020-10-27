@@ -60,7 +60,7 @@ img.brand {
   height: auto;
   transition: 250ms;
   &:hover {
-    filter: brightness(1.25);
+    filter: brightness(1.25) saturate(1.25);
   }
 }
 
@@ -82,3 +82,4 @@ img.brand {
 @import "spinner";
 @import "navbar";
 @import "homepage";
+@import "verifypage";
