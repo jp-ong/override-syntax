@@ -1,5 +1,5 @@
 .orders {
-  padding: 1rem;
+  padding: 1rem 1vw;
 
   &-header {
     font-size: 1.5rem;
@@ -16,7 +16,7 @@
       width: 100%;
 
       margin: 0.75rem 0;
-      padding: 0.5rem 1rem;
+      padding: 0.5rem 1vw;
 
       background-color: lighten($color: $primary, $amount: 10);
       border-bottom: solid 2px $secondary;
@@ -33,17 +33,17 @@
         display: grid;
 
         &:nth-of-type(1) {
-          padding: 0rem 2rem 0.25rem;
+          padding: 0rem 2vw 0.25rem;
           grid-template-columns: 50% auto 20%;
           .orders-list-entry-row-col {
             & > span {
               font-size: 0.75rem;
               font-weight: 300;
-              margin: 0 0.25rem;
+              margin: 0 0.25vw;
             }
             & > strong {
               font-size: 0.75rem;
-              margin: 0 0.125rem;
+              margin: 0 0.125vw;
               font-weight: 400;
               font-style: italic;
             }
@@ -55,18 +55,18 @@
         }
 
         &:nth-of-type(2) {
-          padding: 0rem 2rem 0.25rem;
+          padding: 0rem 2vw 0.25rem;
           grid-template-columns: 50% auto auto;
           border-bottom: dashed 1px $secondary;
           .orders-list-entry-row-col {
             & > span {
               font-size: 0.75rem;
               font-weight: 300;
-              margin: 0 0.25rem;
+              margin: 0 0.25vw;
             }
             & > strong {
               font-size: 0.75rem;
-              margin: 0 0.125rem;
+              margin: 0 0.125vw;
               font-weight: 400;
               font-style: italic;
             }
@@ -74,19 +74,19 @@
         }
 
         &:nth-of-type(3) {
-          padding: 2rem 2rem 2rem;
-          grid-template-columns: 50% auto 20%;
+          padding: 2rem 2vw 2rem;
+          grid-template-columns: 50% auto auto;
           border-bottom: dashed 1px $secondary;
           background-color: darken($color: $primary, $amount: 3);
           .orders-list-entry-row-col {
             & > span {
               font-size: 0.75rem;
               font-weight: 300;
-              margin: 0 0.25rem;
+              margin: 0 0.25vw;
             }
             & > strong {
               font-size: 1rem;
-              margin: 0 0.125rem;
+              margin: 0 0.125vw;
               color: lighten($color: $primary, $amount: 60);
               & > a {
                 color: lighten($color: $primary, $amount: 60);
@@ -103,17 +103,17 @@
         }
 
         &:nth-of-type(4) {
-          padding: 0.5rem 2rem 0rem;
-          grid-template-columns: 50% auto 20%;
+          padding: 0.5rem 2vw 0rem;
+          grid-template-columns: 50% auto auto;
           .orders-list-entry-row-col {
             & > span {
               font-size: 0.75rem;
               font-weight: 300;
-              margin: 0 0.25rem;
+              margin: 0 0.25vw;
             }
             & > strong {
               font-size: 0.75rem;
-              margin: 0 0.125rem;
+              margin: 0 0.125vw;
               font-weight: 400;
               font-style: italic;
             }

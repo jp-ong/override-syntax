@@ -1,6 +1,6 @@
 .account {
   &-section {
-    padding: 1rem;
+    padding: 1rem 1vw;
     margin: 0.5rem 0;
 
     background-color: lighten($color: $primary, $amount: 5);
@@ -29,10 +29,10 @@
 
         display: grid;
         grid-template-columns: 1fr 6fr;
-        column-gap: 0.5rem;
+        column-gap: 0.5vw;
 
         &-label {
-          padding-left: 0.5rem;
+          padding-left: 0.5vw;
           padding-bottom: 0.5rem;
 
           display: flex;
@@ -50,7 +50,8 @@
           height: fit-content;
           display: grid;
           grid-template-columns: repeat(3, 1fr);
-          gap: 0.5rem;
+          column-gap: 0.5vw;
+          row-gap: 0.5rem;
 
           & > input {
             height: 3rem;

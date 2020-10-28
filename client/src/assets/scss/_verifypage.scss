@@ -5,8 +5,7 @@
   height: 100vh;
 
   display: grid;
-  grid-template-columns: 1fr 1.25fr;
-  column-gap: 10rem;
+  grid-template-columns: 1fr 1.125fr;
 
   &-control {
     position: absolute;
@@ -19,7 +18,7 @@
     margin-bottom: 3rem;
 
     & > button {
-      padding: 0.25rem 10rem;
+      padding: 0.25rem 20vmin;
 
       background-color: $dark;
       color: $white;
@@ -29,7 +28,8 @@
   }
 
   &-brand {
-    width: 50%;
+    width: 40vmin;
+    padding-right: 5vmin;
 
     align-self: center;
     justify-self: flex-end;
@@ -37,7 +37,8 @@
 
   &-form {
     position: relative;
-    width: 50%;
+    width: 60vmin;
+    padding-left: 5vmin;
 
     align-self: center;
     justify-self: flex-start;
