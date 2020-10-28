@@ -230,7 +230,8 @@
 
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 0.5vw;
+    column-gap: 0.5vw;
+    row-gap: 6.75vw;
 
     &-item {
       width: 100%;
