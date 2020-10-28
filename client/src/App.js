@@ -10,6 +10,9 @@ import Verify from "./components/verify/Verify";
 import Account from "./components/account/Account";
 import Store from "./components/store/Store";
 import Item from "./components/item/Item";
+import Checkout from "./components/checkout/Checkout";
+import Orders from "./components/orders/Orders";
+import ErrorPage from "./components/error/ErrorPage";
 
 const App = () => {
   return (
@@ -32,6 +35,7 @@ const App = () => {
 
           <Route exact path="/orders">
             <NavBar />
+            <Orders />
           </Route>
 
           <Route
@@ -55,9 +59,14 @@ const App = () => {
               </>
             )}
           />
+          <Route exact path="/checkout">
+            <NavBar />
+            <Checkout />
+          </Route>
 
           <Route exact path="*">
             <NavBar />
+            <ErrorPage />
           </Route>
         </Switch>
       </Router>

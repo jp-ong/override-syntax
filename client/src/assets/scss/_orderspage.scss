@@ -1,0 +1,141 @@
+.orders {
+  padding: 1rem;
+
+  &-header {
+    font-size: 1.5rem;
+    font-weight: 700;
+  }
+
+  &-list {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: flex-start;
+
+    &-entry {
+      width: 100%;
+
+      margin: 0.75rem 0;
+      padding: 0.5rem 1rem;
+
+      background-color: lighten($color: $primary, $amount: 10);
+      border-bottom: solid 2px $secondary;
+
+      box-shadow: $shadow;
+      transition: 250ms;
+
+      &:hover {
+        border-color: $secondary;
+        filter: brightness(1.25);
+      }
+
+      &-row {
+        display: grid;
+
+        &:nth-of-type(1) {
+          padding: 0rem 2rem 0.25rem;
+          grid-template-columns: 50% auto 20%;
+          .orders-list-entry-row-col {
+            & > span {
+              font-size: 0.75rem;
+              font-weight: 300;
+              margin: 0 0.25rem;
+            }
+            & > strong {
+              font-size: 0.75rem;
+              margin: 0 0.125rem;
+              font-weight: 400;
+              font-style: italic;
+            }
+
+            &:nth-last-of-type(1) {
+              text-align: right;
+            }
+          }
+        }
+
+        &:nth-of-type(2) {
+          padding: 0rem 2rem 0.25rem;
+          grid-template-columns: 50% auto auto;
+          border-bottom: dashed 1px $secondary;
+          .orders-list-entry-row-col {
+            & > span {
+              font-size: 0.75rem;
+              font-weight: 300;
+              margin: 0 0.25rem;
+            }
+            & > strong {
+              font-size: 0.75rem;
+              margin: 0 0.125rem;
+              font-weight: 400;
+              font-style: italic;
+            }
+          }
+        }
+
+        &:nth-of-type(3) {
+          padding: 2rem 2rem 2rem;
+          grid-template-columns: 50% auto 20%;
+          border-bottom: dashed 1px $secondary;
+          background-color: darken($color: $primary, $amount: 3);
+          .orders-list-entry-row-col {
+            & > span {
+              font-size: 0.75rem;
+              font-weight: 300;
+              margin: 0 0.25rem;
+            }
+            & > strong {
+              font-size: 1rem;
+              margin: 0 0.125rem;
+              color: lighten($color: $primary, $amount: 60);
+              & > a {
+                color: lighten($color: $primary, $amount: 60);
+                &:hover {
+                  text-decoration: underline;
+                }
+              }
+            }
+
+            &:nth-last-of-type(1) {
+              text-align: right;
+            }
+          }
+        }
+
+        &:nth-of-type(4) {
+          padding: 0.5rem 2rem 0rem;
+          grid-template-columns: 50% auto 20%;
+          .orders-list-entry-row-col {
+            & > span {
+              font-size: 0.75rem;
+              font-weight: 300;
+              margin: 0 0.25rem;
+            }
+            & > strong {
+              font-size: 0.75rem;
+              margin: 0 0.125rem;
+              font-weight: 400;
+              font-style: italic;
+            }
+
+            &:nth-last-of-type(1) {
+              text-align: right;
+              & > strong {
+                font-weight: 700;
+                font-style: normal;
+                font-size: 1.25rem;
+              }
+            }
+          }
+        }
+      }
+
+      &-spinner {
+        height: 2rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+    }
+  }
+}

@@ -11,6 +11,8 @@ import {
   PROFILE_ERROR,
   PASSWORD_SUCCESS,
   PASSWORD_ERROR,
+  ORDER_SUCCESS,
+  ORDER_ERROR,
   CLEAR_USER,
   CLEAR_FEEDBACK,
 } from "../types/userTypes";
@@ -193,4 +195,41 @@ export const editPassword = (password) => (dispatch) => {
         },
       });
     });
+};
+
+export const placeOrder = (order) => (dispatch) => {
+  dispatch(setLoading());
+
+  const token = sessionStorage.getItem("token");
+
+  const { item, address, quantity, payment_method } = order;
+  const orderBody = {
+    id: item._id,
+    quantity,
+    payment_method,
+    shipping_address: address,
+  };
+
+  axios
+    .post("/api/orders/order", orderBody, {
+      headers: { "x-auth-token": token },
+    })
+    .then((response) => {
+      dispatch({
+        type: ORDER_SUCCESS,
+        payload: {
+          message: { order: response.data.msg, id: response.data.order._id },
+          status: response.data.status,
+        },
+      });
+    })
+    .catch(({ response }) =>
+      dispatch({
+        type: ORDER_ERROR,
+        payload: {
+          error: { order: response.data.msg },
+          status: response.data.status,
+        },
+      })
+    );
 };

@@ -16,9 +16,9 @@ export class AccountProfile extends Component {
     lastname: "",
     house_number: "",
     street_name: "",
-    province: "",
-    city: "",
     district: "",
+    city: "",
+    province: "",
     barangay: "",
     birthdate: "",
     mobile_number: "",
@@ -44,6 +44,9 @@ export class AccountProfile extends Component {
     const { firstname, lastname } = fullname || {};
     const { house_number, street_name, province, city, district, barangay } =
       full_address || {};
+    if (!this.props.user.user_loading && !this.props.user.logged_in) {
+      return window.location.replace("/");
+    }
     return (
       <div className="account-section">
         <div className="account-section-header">
@@ -123,9 +126,9 @@ export class AccountProfile extends Component {
               />
               <input
                 type="text"
-                name="province"
-                placeholder="Province"
-                value={this.state.province || province}
+                name="district"
+                placeholder="District"
+                value={this.state.district || district}
                 onChange={this.tick}
               />
               <input
@@ -137,9 +140,9 @@ export class AccountProfile extends Component {
               />
               <input
                 type="text"
-                name="district"
-                placeholder="District"
-                value={this.state.district || district}
+                name="province"
+                placeholder="Province"
+                value={this.state.province || province}
                 onChange={this.tick}
               />
               <input

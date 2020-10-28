@@ -25,7 +25,7 @@ class Verify extends Component {
 
   render() {
     const { isNew } = this.state;
-    const message = isNew
+    const message = !isNew
       ? "Don't have an account yet?"
       : "Already have an account?";
     return (

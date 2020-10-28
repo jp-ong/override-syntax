@@ -63,12 +63,13 @@
         flex-flow: wrap;
         align-items: baseline;
         justify-content: flex-start;
+        font-weight: 300;
         & > span,
         & > a {
           margin-left: 0.25rem;
 
           font-size: 0.875rem;
-          font-weight: 300;
+          font-weight: 400;
           text-transform: capitalize;
           text-decoration: underline;
         }
@@ -90,6 +91,7 @@
         justify-content: flex-end;
         font-size: 0.875rem;
         & > span {
+          margin: 0 0.25rem;
           font-size: 1.25rem;
           font-weight: 700;
         }

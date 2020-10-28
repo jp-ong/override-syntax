@@ -5,7 +5,16 @@ import Spinner from "../Spinner";
 import axios from "axios";
 import { Link } from "react-router-dom";
 
+import PropTypes from "prop-types";
+import { connect } from "react-redux";
+import { authUser } from "../../redux/actions/userActions";
+
 class Item extends Component {
+  static propTypes = {
+    user: PropTypes.object.isRequired,
+    authUser: PropTypes.func.isRequired,
+  };
+
   state = {
     item: {},
     quantity: 1,
@@ -14,6 +23,7 @@ class Item extends Component {
   };
 
   componentDidMount() {
+    this.props.authUser();
     this.setState({ is_loading: true });
     axios
       .get(`/api/items/item?id=${this.props.match.params.id}`)
@@ -49,7 +59,17 @@ class Item extends Component {
     }
   };
 
+  cacheItem = () => {
+    const cart = {
+      item: this.state.item,
+      quantity: this.state.quantity,
+    };
+    sessionStorage.setItem("cart", JSON.stringify(cart));
+    window.location.replace("/checkout");
+  };
+
   render() {
+    const { logged_in } = this.props.user;
     const { item, quantity, image, is_loading } = this.state;
     const {
       item_name,
@@ -101,16 +121,20 @@ class Item extends Component {
                 <div className="item-info-row">
                   <span>{formatPrice(item_price * quantity)}</span>php
                 </div>
-                <div className="item-info-row">
-                  <div className="item-info-row-quantity">
-                    <button onClick={() => this.tickQuantity(-1)}>-</button>
-                    <span>{quantity}</span>
-                    <button onClick={() => this.tickQuantity(1)}>+</button>
+                {logged_in ? (
+                  <div className="item-info-row">
+                    <div className="item-info-row-quantity">
+                      <button onClick={() => this.tickQuantity(-1)}>-</button>
+                      <span>{quantity}</span>
+                      <button onClick={() => this.tickQuantity(1)}>+</button>
+                    </div>
+                    <div className="item-info-row-buy">
+                      <button onClick={this.cacheItem}>BUY NOW</button>
+                    </div>
                   </div>
-                  <div className="item-info-row-buy">
-                    <button>BUY NOW</button>
-                  </div>
-                </div>
+                ) : (
+                  <></>
+                )}
               </div>
             </>
           )}
@@ -120,4 +144,10 @@ class Item extends Component {
   }
 }
 
-export default Item;
+const mapStateToProps = (state) => ({
+  user: state.user,
+});
+
+const mapDispatchToProps = { authUser };
+
+export default connect(mapStateToProps, mapDispatchToProps)(Item);

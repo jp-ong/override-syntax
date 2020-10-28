@@ -1,0 +1,43 @@
+.error {
+  width: 100vw;
+  height: 80vh;
+  padding-bottom: 10rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &-status {
+    font-size: 5rem;
+    font-weight: 700;
+    color: $dark;
+    padding: 0 1rem;
+  }
+
+  &-text {
+    border-left: solid 5px lighten($color: $primary, $amount: 10);
+    padding: 0 1rem;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: flex-end;
+    justify-content: center;
+    & > span {
+      font-size: 2.5rem;
+      font-weight: 700;
+    }
+    & > a {
+      background-color: $secondary;
+      width: 10rem;
+      height: 2rem;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      font-weight: 700;
+      &:hover {
+        filter: brightness(1.25);
+      }
+    }
+  }
+}

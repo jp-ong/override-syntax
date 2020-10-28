@@ -15,5 +15,8 @@ export const PROFILE_ERROR = "PROFILE_ERROR";
 export const PASSWORD_SUCCESS = "PASSWORD_SUCCESS";
 export const PASSWORD_ERROR = "PASSWORD_ERROR";
 
+export const ORDER_SUCCESS = "ORDER_SUCCESS";
+export const ORDER_ERROR = "ORDER_ERROR";
+
 export const CLEAR_USER = "CLEAR_USER";
 export const CLEAR_FEEDBACK = "CLEAR_FEEDBACK";

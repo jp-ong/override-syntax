@@ -1,7 +1,7 @@
 import { ITEMS_LOADING, FETCH_ITEMS } from "../types/itemTypes";
 
 const initialState = {
-  items_loading: false,
+  items_loading: true,
   items: [],
 };
 

@@ -10,13 +10,15 @@ import {
   PROFILE_ERROR,
   PASSWORD_SUCCESS,
   PASSWORD_ERROR,
+  ORDER_SUCCESS,
+  ORDER_ERROR,
   CLEAR_USER,
   CLEAR_FEEDBACK,
 } from "../types/userTypes";
 
 const initialState = {
   token: null,
-  user_loading: false,
+  user_loading: true,
   logged_in: false,
   user: {},
   message: "",
@@ -68,6 +70,20 @@ export default (state = initialState, action) => {
         error: payload.error,
         status: payload.status,
         message: "",
+        user_loading: false,
+      };
+    case ORDER_SUCCESS:
+      return {
+        ...state,
+        status: payload.status,
+        message: payload.message,
+        user_loading: false,
+      };
+    case ORDER_ERROR:
+      return {
+        ...state,
+        status: payload.status,
+        error: payload.error,
         user_loading: false,
       };
     case CLEAR_USER:

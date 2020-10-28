@@ -1,7 +1,7 @@
 import { STATICS_LOADING, FETCH_STATICS } from "../types/staticsTypes";
 
 const initialState = {
-  statics_loading: false,
+  statics_loading: true,
   categories: {},
   tags: {},
 };

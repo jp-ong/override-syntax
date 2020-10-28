@@ -82,7 +82,7 @@ router.post("/order", auth, (req, res) => {
               .then((response) => {
                 user.orders_list = [
                   ...user.orders_list,
-                  response.data.order.order_id,
+                  response.data.order._id,
                 ];
                 user.logs = [...user.logs, `>${req.ip}  @${date}  #Order`];
                 user.save({}, (error, user) => {
@@ -94,7 +94,7 @@ router.post("/order", auth, (req, res) => {
                       error,
                     });
                   } else {
-                    return res.status(200).json(response.data);
+                    return res.status(response.status).json(response.data);
                   }
                 });
               })
