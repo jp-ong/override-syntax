@@ -9,6 +9,7 @@ import Home from "./components/home/Home";
 import Verify from "./components/verify/Verify";
 import Account from "./components/account/Account";
 import Store from "./components/store/Store";
+import Item from "./components/item/Item";
 
 const App = () => {
   return (
@@ -44,9 +45,16 @@ const App = () => {
             )}
           />
 
-          <Route exact path="/item/:id">
-            <NavBar />
-          </Route>
+          <Route
+            exact
+            path="/item/:id"
+            render={(props) => (
+              <>
+                <NavBar />
+                <Item {...props} />
+              </>
+            )}
+          />
 
           <Route exact path="*">
             <NavBar />

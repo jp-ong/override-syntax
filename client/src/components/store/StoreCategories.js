@@ -5,13 +5,14 @@ const StoreCategories = ({ categories, active_category }) => {
   return (
     <div className="store-filter-categories">
       <span>CATEGORIES</span>
-      {Object.keys(categories).map((category, index) => (
+      {Object.values(categories).map(({ title, icon }, index) => (
         <Link
           key={index}
-          to={`/store/${category}`}
-          className={category === active_category ? "active" : ""}
+          to={`/store/${title}`}
+          className={title === active_category ? "active" : ""}
+          style={{ backgroundImage: `url(${icon})` }}
         >
-          {category}
+          <span>{title}</span>
         </Link>
       ))}
     </div>

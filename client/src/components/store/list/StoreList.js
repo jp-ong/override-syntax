@@ -43,7 +43,7 @@ const StoreList = ({
   return (
     <div className="store-list">
       {sortedItems.map((item) => (
-        <StoreItem item={item} />
+        <StoreItem key={item._id} item={item} />
       ))}
     </div>
   );
