@@ -102,15 +102,23 @@
       margin-bottom: -2rem;
 
       padding: 0.25rem 0;
+      padding-left: 5vmin;
 
       display: flex;
       align-items: center;
       justify-content: center;
 
-      border: dashed 1px $dark;
-      color: $secondary;
-
       & > span {
+        height: 1.5rem;
+        width: 100%;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        color: $secondary;
+        border: dashed 1px $dark;
+
         font-size: 0.75rem;
       }
     }
@@ -122,6 +130,7 @@
       right: 0;
       height: 2rem;
       margin-bottom: -2rem;
+      padding-left: 5vmin;
     }
   }
 }
