@@ -17,8 +17,9 @@ export class Orders extends Component {
   }
 
   render() {
-    const { user, user_loading } = this.props.user;
+    const { user, user_loading, logged_in } = this.props.user;
     const { orders_list } = user;
+    if (!user_loading && !logged_in) return window.location.replace("/verify");
     return (
       <Container>
         <div className="orders">
