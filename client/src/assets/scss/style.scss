@@ -13,15 +13,15 @@
 
 html {
   width: 100vw;
+  font-size: 16px;
   overflow-x: hidden;
 }
 
 body {
   background-color: $primary;
   color: $white;
-
+  font-size: 1rem;
   font-family: $sans;
-  font-size: 16px;
   font-weight: 400;
 }
 
@@ -107,3 +107,4 @@ img.brand {
 @import "checkoutpage";
 @import "orderspage";
 @import "errorpage";
+@import "media";

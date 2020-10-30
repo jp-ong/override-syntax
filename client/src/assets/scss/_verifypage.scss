@@ -22,7 +22,8 @@
 
       background-color: $dark;
       color: $white;
-      border: solid 1px $secondary;
+      border-left: solid 1px $secondary;
+      border-right: solid 1px $secondary;
       box-shadow: $shadow;
     }
   }

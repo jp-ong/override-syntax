@@ -48,7 +48,7 @@
       &-inputs {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
-        gap: 0.25rem;
+        gap: 0.25vw;
 
         & > input {
           height: 2.25rem;
@@ -185,9 +185,9 @@
       justify-content: space-between;
       margin-top: 1rem;
       & > a {
-        width: 10vw;
+        width: 20vmin;
         height: 2rem;
-        margin: 0 10vw;
+        margin: 0 10vmin;
 
         display: flex;
         align-items: center;
@@ -196,6 +196,8 @@
         background-color: $dark;
         border: solid 1px $secondary;
         color: $white;
+
+        font-size: 1.75vmin;
         font-weight: 700;
 
         &:hover {

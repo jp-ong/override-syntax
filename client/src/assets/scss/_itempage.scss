@@ -10,6 +10,7 @@
 
   &-image {
     height: 30rem;
+    margin-bottom: 1vw;
 
     background-color: darken($color: $primary, $amount: 5);
 
@@ -43,6 +44,7 @@
   }
 
   &-info {
+    height: 30rem;
     padding: 1rem 1vw;
 
     display: grid;
@@ -101,7 +103,7 @@
         justify-content: flex-end;
       }
       &-quantity {
-        width: 15vw;
+        width: 30vmin;
 
         margin-right: 2vw;
 
@@ -133,7 +135,7 @@
       }
 
       &-buy {
-        width: 10vw;
+        width: 20vmin;
         height: 2rem;
 
         & > button {
