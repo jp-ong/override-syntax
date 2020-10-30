@@ -195,6 +195,11 @@
           transition: 250ms;
         }
 
+        &:hover {
+          & > span {
+            background-color: transparentize($color: #000000, $amount: 0.75);
+          }
+        }
         &.active {
           font-weight: 700;
           filter: brightness(1.25);
@@ -303,7 +308,7 @@
         filter: brightness(1.25);
         .store-list-item {
           &-image {
-            background-size: 110%;
+            background-size: 100%;
           }
           &-price {
             border-color: $secondary;
