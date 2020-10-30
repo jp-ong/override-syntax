@@ -94,7 +94,7 @@ export class AccountPassword extends Component {
             {message.password ? (
               <Spinner />
             ) : (
-              <button onClick={this.buttonClicked}>UPDATE PROFILE</button>
+              <button onClick={this.buttonClicked}>UPDATE PASSWORD</button>
             )}
           </div>
         </div>
