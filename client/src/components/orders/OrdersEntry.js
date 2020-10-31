@@ -49,32 +49,54 @@ class OrdersEntry extends Component {
           <React.Fragment>
             <div className="orders-list-entry-row">
               <div className="orders-list-entry-row-col">
-                <span>Order ID</span>
-                <strong>{_id}</strong>
+                <div>
+                  <span>Order ID</span>
+                </div>
+                <div>
+                  <strong>{_id}</strong>
+                </div>
               </div>
               <div className="orders-list-entry-row-col">
-                <span>Order Status</span>
-                <strong>{order_status}</strong>
+                <div>
+                  <span>Order Status</span>
+                </div>
+                <div>
+                  <strong>{order_status}</strong>
+                </div>
               </div>
               <div className="orders-list-entry-row-col">
-                <span>Ordered At</span>
-                <strong>{new Date(created_at).toLocaleString()}</strong>
+                <div>
+                  <span>Ordered At</span>
+                </div>
+                <div>
+                  <strong>{new Date(created_at).toLocaleString()}</strong>
+                </div>
               </div>
             </div>
 
             <div className="orders-list-entry-row">
               <div className="orders-list-entry-row-col">
-                <span>Payment Method</span>
-                <strong>{payment_method}</strong>
+                <div>
+                  <span>Payment Method</span>
+                </div>
+                <div>
+                  <strong>{payment_method}</strong>
+                </div>
               </div>
               <div className="orders-list-entry-row-col">
-                <span>Payment Status</span>
-                <strong>{payment_status}</strong>
+                <div>
+                  <span>Payment Status</span>
+                </div>
+                <div>
+                  <strong>{payment_status}</strong>
+                </div>
               </div>
             </div>
             <div className="orders-list-entry-row">
               <div className="orders-list-entry-row-col">
-                <span>Item</span>
+                <div>
+                  <span>Item</span>
+                </div>
                 <strong>
                   <Link to={`/item/${item.id}`} target="_blank">
                     {item.name}
@@ -82,34 +104,57 @@ class OrdersEntry extends Component {
                 </strong>
               </div>
               <div className="orders-list-entry-row-col">
-                <span>Quantity</span>
-                <strong>{item.quantity}</strong>
+                <div>
+                  <span>Quantity</span>
+                </div>
+                <div>
+                  <strong>{item.quantity}</strong>
+                </div>
               </div>
               <div className="orders-list-entry-row-col">
-                <span>Subtotal</span>
-                <strong>{formatPrice(item.price * item.quantity)}</strong>
-                <span>php</span>
+                <div>
+                  <span>Subtotal</span>
+                </div>{" "}
+                <div>
+                  <strong>{formatPrice(item.price * item.quantity)}</strong>
+
+                  <span>php</span>
+                </div>
               </div>
             </div>
             <div className="orders-list-entry-row">
               <div className="orders-list-entry-row-col">
-                <span>Shipping To</span>
-                <strong>{shipping_address.house_number},</strong>
-                <strong>{shipping_address.street_name},</strong>
-                <strong>{shipping_address.district},</strong>
-                <strong>{shipping_address.city},</strong>
-                <strong>{shipping_address.province},</strong>
-                <strong>{shipping_address.barangay}</strong>
+                <div>
+                  <span>Shipping To</span>
+                </div>
+                <div>
+                  <strong>{shipping_address.house_number},</strong>
+                  <strong>{shipping_address.street_name},</strong>
+                  <strong>{shipping_address.district},</strong>
+                  <strong>{shipping_address.city},</strong>
+                  <strong>{shipping_address.province},</strong>
+                  <strong>{shipping_address.barangay}</strong>
+                </div>
               </div>
               <div className="orders-list-entry-row-col">
-                <span>Fee</span>
-                <strong>{formatPrice(fee)}</strong>
-                <span>php</span>
+                <div>
+                  <span>Fee</span>
+                </div>
+                <div>
+                  <strong>{formatPrice(fee)}</strong>
+                  <span>php</span>
+                </div>
               </div>
               <div className="orders-list-entry-row-col">
-                <span>Total</span>
-                <strong>{formatPrice(item.quantity * item.price + fee)}</strong>
-                <span>php</span>
+                <div>
+                  <span>Total</span>
+                </div>
+                <div>
+                  <strong>
+                    {formatPrice(item.quantity * item.price + fee)}
+                  </strong>
+                  <span>php</span>
+                </div>
               </div>
             </div>
           </React.Fragment>

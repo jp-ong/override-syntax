@@ -16,7 +16,7 @@
       width: 100%;
 
       margin: 0.75rem 0;
-      padding: 0.5rem 1vw;
+      padding: 0.5vmin 1vw;
 
       background-color: lighten($color: $primary, $amount: 10);
       border-bottom: solid 2px $secondary;
@@ -31,61 +31,36 @@
 
       &-row {
         display: grid;
-
-        &:nth-of-type(1) {
-          padding: 0rem 2vw 0.25rem;
-          grid-template-columns: 50% auto 20%;
-          .orders-list-entry-row-col {
-            & > span {
-              font-size: 0.75rem;
-              font-weight: 300;
-              margin: 0 0.25vw;
-            }
-            & > strong {
-              font-size: 0.75rem;
-              margin: 0 0.125vw;
-              font-weight: 400;
-              font-style: italic;
-            }
-
-            &:nth-last-of-type(1) {
-              text-align: right;
-            }
+        grid-template-columns: 50% auto auto;
+        font-size: 2.5vmin;
+        padding: 0 2vw 0.25vw;
+        &-col {
+          &:nth-of-type(3) {
+            text-align: right;
           }
-        }
-
-        &:nth-of-type(2) {
-          padding: 0rem 2vw 0.25rem;
-          grid-template-columns: 50% auto auto;
-          border-bottom: dashed 1px $secondary;
-          .orders-list-entry-row-col {
-            & > span {
-              font-size: 0.75rem;
-              font-weight: 300;
-              margin: 0 0.25vw;
-            }
-            & > strong {
-              font-size: 0.75rem;
-              margin: 0 0.125vw;
-              font-weight: 400;
-              font-style: italic;
-            }
+          & > div > span {
+            font-size: 0.75em;
+            font-weight: 300;
+            margin: 0 0.125vw;
+          }
+          & > div > strong {
+            font-size: 0.75em;
+            margin: 0 0.125vw;
+            font-weight: 400;
+            font-style: italic;
           }
         }
 
         &:nth-of-type(3) {
           padding: 2rem 2vw 2rem;
-          grid-template-columns: 50% auto auto;
+          border-top: dashed 1px $secondary;
           border-bottom: dashed 1px $secondary;
           background-color: darken($color: $primary, $amount: 3);
           .orders-list-entry-row-col {
-            & > span {
-              font-size: 0.75rem;
-              font-weight: 300;
-              margin: 0 0.25vw;
-            }
-            & > strong {
-              font-size: 1rem;
+            & > div > strong {
+              font-style: normal;
+              font-weight: 700;
+              font-size: 1em;
               margin: 0 0.125vw;
               color: lighten($color: $primary, $amount: 60);
               & > a {
@@ -95,36 +70,15 @@
                 }
               }
             }
-
-            &:nth-last-of-type(1) {
-              text-align: right;
-            }
           }
         }
 
-        &:nth-of-type(4) {
-          padding: 0.5rem 2vw 0rem;
-          grid-template-columns: 50% auto auto;
-          .orders-list-entry-row-col {
-            & > span {
-              font-size: 0.75rem;
-              font-weight: 300;
-              margin: 0 0.25vw;
-            }
-            & > strong {
-              font-size: 0.75rem;
-              margin: 0 0.125vw;
-              font-weight: 400;
-              font-style: italic;
-            }
-
-            &:nth-last-of-type(1) {
-              text-align: right;
-              & > strong {
-                font-weight: 700;
-                font-style: normal;
-                font-size: 1.25rem;
-              }
+        &:nth-of-type(4) > &-col {
+          &:nth-of-type(3) {
+            & > div > strong {
+              font-style: normal;
+              font-weight: 700;
+              font-size: 1.25em;
             }
           }
         }

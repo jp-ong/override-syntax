@@ -115,4 +115,25 @@
       }
     }
   }
+  .orders {
+    &-list {
+      &-entry {
+        &-row {
+          font-size: 3vmin;
+        }
+      }
+    }
+  }
+
+  .error {
+    flex-flow: column nowrap;
+    & > div {
+      text-align: center;
+      align-items: center;
+    }
+    &-text {
+      border-left: none;
+      border-top: solid 5px lighten($color: $primary, $amount: 10);
+    }
+  }
 }
