@@ -42,7 +42,7 @@ const StoreSort = ({ toggleSort }) => {
           </div>
         </div>
       ) : (
-        <></>
+        <React.Fragment />
       )}
     </div>
   );

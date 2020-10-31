@@ -37,11 +37,12 @@ export class Register extends Component {
 
   keyDown = (e) => {
     if (e.key === "Enter") {
-      this.props.registerUser(this.state);
+      this.submitForm();
     }
   };
 
-  buttonClicked = () => {
+  submitForm = (e) => {
+    if (e) e.preventDefault();
     this.props.registerUser(this.state);
   };
 
@@ -49,7 +50,7 @@ export class Register extends Component {
     const { firstname, lastname, email, password, password2 } = this.state;
     const { error, user_loading } = this.props.user;
     return (
-      <>
+      <form onSubmit={this.submitForm}>
         <div className="verify-form-header">
           <span>SIGN UP</span>
         </div>
@@ -98,8 +99,9 @@ export class Register extends Component {
         <div className="verify-form-button">
           <button
             id="register"
-            onClick={this.buttonClicked}
+            type="submit"
             className={user_loading ? "disabled" : ""}
+            disabled={user_loading}
           >
             REGISTER
           </button>
@@ -113,9 +115,9 @@ export class Register extends Component {
             <span className="error-feedback">{error.register}</span>
           </div>
         ) : (
-          <></>
+          <React.Fragment />
         )}
-      </>
+      </form>
     );
   }
 }

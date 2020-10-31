@@ -39,7 +39,7 @@ export class AccountProfile extends Component {
   };
 
   render() {
-    const { user, message, error } = this.props.user;
+    const { user, message, error, user_loading } = this.props.user;
     const { fullname, full_address, mobile_number, birthdate } = user || {};
     const { firstname, lastname } = fullname || {};
     const { house_number, street_name, province, city, district, barangay } =
@@ -160,19 +160,23 @@ export class AccountProfile extends Component {
             {message.profile ? (
               <span className="success-feedback">{message.profile}</span>
             ) : (
-              <></>
+              <React.Fragment />
             )}
             {error.profile ? (
               <span className="error-feedback">{error.profile}</span>
             ) : (
-              <></>
+              <React.Fragment />
             )}
           </div>
           <div className="account-section-footer-control">
             {message.profile ? (
               <Spinner />
             ) : (
-              <button onClick={this.buttonClicked} className="disabled">
+              <button
+                disabled={user_loading}
+                onClick={this.buttonClicked}
+                className={user_loading ? "disabled" : ""}
+              >
                 UPDATE PROFILE
               </button>
             )}

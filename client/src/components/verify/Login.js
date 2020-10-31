@@ -34,11 +34,12 @@ export class Login extends Component {
 
   keyDown = (e) => {
     if (e.key === "Enter") {
-      this.props.loginUser(this.state);
+      this.submitForm();
     }
   };
 
-  buttonClicked = () => {
+  submitForm = (e) => {
+    if (e) e.preventDefault();
     this.props.loginUser(this.state);
   };
 
@@ -46,7 +47,7 @@ export class Login extends Component {
     const { email, password } = this.state;
     const { error, user_loading } = this.props.user;
     return (
-      <>
+      <form onSubmit={this.submitForm}>
         <div className="verify-form-header">
           <span>SIGN IN</span>
         </div>
@@ -71,8 +72,9 @@ export class Login extends Component {
         <div className="verify-form-button">
           <button
             id="login"
-            onClick={this.buttonClicked}
+            type="submit"
             className={user_loading ? "disabled" : ""}
+            disabled={user_loading}
           >
             LOGIN
           </button>
@@ -86,9 +88,9 @@ export class Login extends Component {
             <span className="error-feedback">{error.login}</span>
           </div>
         ) : (
-          <></>
+          <React.Fragment />
         )}
-      </>
+      </form>
     );
   }
 }

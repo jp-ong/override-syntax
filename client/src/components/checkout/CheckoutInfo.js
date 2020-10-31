@@ -7,7 +7,7 @@ const CheckoutInfo = ({
   changePage,
 }) => {
   return (
-    <>
+    <React.Fragment>
       <div className="checkout-info">
         <div className="checkout-info-header">
           <h2>ENTER DETAILS</h2>
@@ -79,7 +79,7 @@ const CheckoutInfo = ({
         <button onClick={() => changePage(-1)}>Cancel</button>
         <button onClick={() => changePage(1)}>Proceed to Checkout</button>
       </div>
-    </>
+    </React.Fragment>
   );
 };
 

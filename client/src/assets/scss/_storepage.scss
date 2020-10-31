@@ -256,7 +256,7 @@
         background-position: center;
         background-size: 95%;
         background-repeat: no-repeat;
-        background-color: lighten($color: $primary, $amount: 5);
+        background-color: lighten($color: $primary, $amount: 10);
         box-shadow: $shadow;
 
         transition: 250ms;

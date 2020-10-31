@@ -46,7 +46,7 @@ class OrdersEntry extends Component {
             <Spinner />
           </div>
         ) : (
-          <>
+          <React.Fragment>
             <div className="orders-list-entry-row">
               <div className="orders-list-entry-row-col">
                 <span>Order ID</span>
@@ -76,7 +76,9 @@ class OrdersEntry extends Component {
               <div className="orders-list-entry-row-col">
                 <span>Item</span>
                 <strong>
-                  <Link to={`/item/${item.id}`}>{item.name}</Link>
+                  <Link to={`/item/${item.id}`} target="_blank">
+                    {item.name}
+                  </Link>
                 </strong>
               </div>
               <div className="orders-list-entry-row-col">
@@ -110,7 +112,7 @@ class OrdersEntry extends Component {
                 <span>php</span>
               </div>
             </div>
-          </>
+          </React.Fragment>
         )}
       </div>
     );

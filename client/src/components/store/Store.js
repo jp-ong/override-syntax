@@ -89,7 +89,7 @@ export class Store extends Component {
               <i className="fas fa-filter" />
             </div>
             {filters_open ? (
-              <>
+              <React.Fragment>
                 <StoreCategories
                   categories={categories}
                   active_category={active_category}
@@ -99,9 +99,9 @@ export class Store extends Component {
                   active_tags={active_tags}
                   tickTags={this.tickTags}
                 />
-              </>
+              </React.Fragment>
             ) : (
-              <></>
+              <React.Fragment />
             )}
           </div>
           {items_loading ? (

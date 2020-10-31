@@ -93,7 +93,7 @@ class Item extends Component {
               <Spinner />
             </div>
           ) : (
-            <>
+            <React.Fragment>
               <div
                 className="item-image"
                 style={{ backgroundImage: `url(${images[image]})` }}
@@ -114,7 +114,7 @@ class Item extends Component {
                 <div className="item-info-row">
                   Tags
                   {tags.map((tag) => (
-                    <span>{tag}</span>
+                    <span key={tag}>{tag}</span>
                   ))}
                 </div>
                 <div className="item-info-row">{item_description}</div>
@@ -133,10 +133,10 @@ class Item extends Component {
                     </div>
                   </div>
                 ) : (
-                  <></>
+                  <React.Fragment />
                 )}
               </div>
-            </>
+            </React.Fragment>
           )}
         </div>
       </Container>

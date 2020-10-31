@@ -54,10 +54,14 @@ button {
   cursor: pointer;
   user-select: none;
   transition: 250ms;
-}
-
-button:hover {
-  filter: brightness(1.25);
+  &.disabled {
+    opacity: 0.25;
+    cursor: none;
+    pointer-events: none;
+  }
+  &:hover {
+    filter: brightness(1.25);
+  }
 }
 
 a {

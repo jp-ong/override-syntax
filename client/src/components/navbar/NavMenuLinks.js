@@ -11,7 +11,7 @@ class NavMenuLinks extends Component {
   render() {
     const { logged_in } = this.props.user;
     return logged_in ? (
-      <>
+      <React.Fragment>
         <Link to="/account">
           <span>Account Settings</span>
           <i className="fas fa-user-cog" />
@@ -24,14 +24,14 @@ class NavMenuLinks extends Component {
           <span>Logout</span>
           <i className="fas fa-sign-out-alt" />
         </Link>
-      </>
+      </React.Fragment>
     ) : (
-      <>
+      <React.Fragment>
         <Link to="/verify">
           <span>Login</span>
           <i className="fas fa-sign-in-alt" />
         </Link>
-      </>
+      </React.Fragment>
     );
   }
 }

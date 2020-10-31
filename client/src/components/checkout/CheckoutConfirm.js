@@ -34,7 +34,7 @@ const CheckoutConfirm = ({
       .replace(/\B(?=(\d{3})+(?!\d))/g, ",");
   };
   return (
-    <>
+    <React.Fragment>
       <div className="checkout-confirm">
         <div className="checkout-confirm-header">REVIEW YOUR ORDER</div>
         <div className="checkout-confirm-section">
@@ -95,7 +95,7 @@ const CheckoutConfirm = ({
         <button onClick={() => changePage(-1)}>Go Back</button>
         <button onClick={() => orderItem(address)}>Place Order</button>
       </div>
-    </>
+    </React.Fragment>
   );
 };
 

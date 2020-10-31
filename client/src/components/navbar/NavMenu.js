@@ -20,7 +20,7 @@ const NavMenu = () => {
           <MenuLinks />
         </div>
       ) : (
-        <></>
+        <React.Fragment />
       )}
     </div>
   );

@@ -83,7 +83,7 @@ export class Checkout extends Component {
               <Spinner />
             </div>
           ) : (
-            <>
+            <React.Fragment>
               {page === 1 ? (
                 <CheckoutInfo
                   new_address={new_address}
@@ -92,7 +92,7 @@ export class Checkout extends Component {
                   changePage={this.changePage}
                 />
               ) : (
-                <></>
+                <React.Fragment />
               )}
               {page === 2 ? (
                 <CheckoutConfirm
@@ -105,7 +105,7 @@ export class Checkout extends Component {
                   orderItem={this.orderItem}
                 />
               ) : (
-                <></>
+                <React.Fragment />
               )}
               {page === 3 ? (
                 <CheckoutSuccess
@@ -114,9 +114,9 @@ export class Checkout extends Component {
                   error={error}
                 />
               ) : (
-                <></>
+                <React.Fragment />
               )}
-            </>
+            </React.Fragment>
           )}
         </div>
       </Container>

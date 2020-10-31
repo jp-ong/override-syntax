@@ -38,7 +38,7 @@ export class AccountPassword extends Component {
   };
 
   render() {
-    const { message, error } = this.props.user;
+    const { message, error, user_loading } = this.props.user;
     return (
       <div className="account-section">
         <div className="account-section-header">
@@ -82,19 +82,25 @@ export class AccountPassword extends Component {
             {message.password ? (
               <span className="success-feedback">{message.password}</span>
             ) : (
-              <></>
+              <React.Fragment />
             )}
             {error.password ? (
               <span className="error-feedback">{error.password}</span>
             ) : (
-              <></>
+              <React.Fragment />
             )}
           </div>
           <div className="account-section-footer-control">
             {message.password ? (
               <Spinner />
             ) : (
-              <button onClick={this.buttonClicked}>UPDATE PASSWORD</button>
+              <button
+                disabled={user_loading}
+                onClick={this.buttonClicked}
+                className={user_loading ? "disabled" : ""}
+              >
+                UPDATE PASSWORD
+              </button>
             )}
           </div>
         </div>

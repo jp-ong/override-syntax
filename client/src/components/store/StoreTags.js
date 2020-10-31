@@ -15,7 +15,7 @@ const StoreTags = ({ tags, tickTags, active_tags }) => {
           </button>
         ))
       ) : (
-        <></>
+        <React.Fragment />
       )}
     </div>
   );

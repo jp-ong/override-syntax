@@ -26,7 +26,7 @@ export class Orders extends Component {
           <div className="orders-header">MY ORDERS</div>
           <div className="orders-list">
             {user_loading ? (
-              <></>
+              <React.Fragment />
             ) : (
               orders_list.map((order, index) => (
                 <OrdersEntry key={index} id={order} />
