@@ -6,11 +6,14 @@ const StoreList = ({
   active_category,
   active_tags,
   active_sort,
+  categories,
   keyword,
 }) => {
-  const categorizedItems = items.filter(
-    (item) => item.category === active_category
-  );
+  const categorizedItems = items.filter((item) => {
+    return active_category === "others"
+      ? !Object.keys(categories).includes(item.category)
+      : item.category === active_category;
+  });
   const taggedItems =
     active_tags.length === 0
       ? categorizedItems

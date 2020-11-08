@@ -114,6 +114,7 @@ export class Store extends Component {
               active_category={active_category}
               active_tags={active_tags}
               active_sort={active_sort}
+              categories={categories}
               keyword={keyword}
             />
           )}
