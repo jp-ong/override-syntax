@@ -45,6 +45,10 @@ class OrdersEntry extends Component {
           <div className="orders-list-entry-spinner">
             <Spinner />
           </div>
+        ) : message ? (
+          <React.Fragment>
+            <div className="orders-list-entry-row">{message}</div>
+          </React.Fragment>
         ) : (
           <React.Fragment>
             <div className="orders-list-entry-row">
@@ -61,7 +65,13 @@ class OrdersEntry extends Component {
                   <span>Order Status</span>
                 </div>
                 <div>
-                  <strong>{order_status}</strong>
+                  <strong
+                    className={
+                      order_status === "Delivered" ? "completed" : "pending"
+                    }
+                  >
+                    {order_status}
+                  </strong>
                 </div>
               </div>
               <div className="orders-list-entry-row-col">
@@ -88,7 +98,13 @@ class OrdersEntry extends Component {
                   <span>Payment Status</span>
                 </div>
                 <div>
-                  <strong>{payment_status}</strong>
+                  <strong
+                    className={
+                      order_status === "Paid" ? "completed" : "pending"
+                    }
+                  >
+                    {payment_status}
+                  </strong>
                 </div>
               </div>
             </div>
