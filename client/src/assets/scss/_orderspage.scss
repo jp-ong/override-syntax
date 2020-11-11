@@ -50,7 +50,7 @@
             font-weight: 500;
             font-style: italic;
             &.pending {
-              color: $secondary;
+              color: cyan;
             }
             &.completed {
               color: lime;
