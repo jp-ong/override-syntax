@@ -49,6 +49,9 @@
             margin: 0 0.125vw;
             font-weight: 500;
             font-style: italic;
+            &.cancelled {
+              color: lightcoral;
+            }
             &.pending {
               color: cyan;
             }
