@@ -41,8 +41,8 @@ class OrdersEntry extends Component {
         .toString()
         .replace(/\B(?=(\d{3})+(?!\d))/g, ",");
     };
-    const colorClass = () => {
-      switch (order_status) {
+    const colorClass = (status) => {
+      switch (status) {
         case "Paid":
         case "Delivered":
           return "completed";
@@ -78,18 +78,20 @@ class OrdersEntry extends Component {
                   <span>Order Status</span>
                 </div>
                 <div>
-                  <strong className={colorClass()}>{order_status}</strong>
+                  <strong className={colorClass(order_status)}>
+                    {order_status}
+                  </strong>
                 </div>
               </div>
               <div className="orders-list-entry-row-col">
                 <div>
-                  <span>Paid On</span>
+                  <span>Delivered On</span>
                 </div>
                 <div>
-                  <strong className={colorClass()}>
-                    {paid_on === null
-                      ? "- - - "
-                      : new Date(paid_on).toLocaleString()}
+                  <strong className={colorClass(order_status)}>
+                    {delivered_on === null
+                      ? "- - -"
+                      : new Date(delivered_on).toLocaleString()}
                   </strong>
                 </div>
               </div>
@@ -109,18 +111,20 @@ class OrdersEntry extends Component {
                   <span>Payment Status</span>
                 </div>
                 <div>
-                  <strong className={colorClass()}>{payment_status}</strong>
+                  <strong className={colorClass(payment_status)}>
+                    {payment_status}
+                  </strong>
                 </div>
               </div>
               <div className="orders-list-entry-row-col">
                 <div>
-                  <span>Delivered On</span>
+                  <span>Paid On</span>
                 </div>
                 <div>
-                  <strong className={colorClass()}>
-                    {delivered_on === null
-                      ? "- - -"
-                      : new Date(delivered_on).toLocaleString()}
+                  <strong className={colorClass(payment_status)}>
+                    {paid_on === null
+                      ? "- - - "
+                      : new Date(paid_on).toLocaleString()}
                   </strong>
                 </div>
               </div>
