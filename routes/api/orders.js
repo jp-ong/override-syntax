@@ -115,4 +115,20 @@ router.post("/order", auth, (req, res) => {
   }
 });
 
+router.patch("/cancel", auth, (req, res) => {
+  try {
+    axios
+      .patch(`${url}/api/orders/cancel?id=${req.query.id}`)
+      .then((response) => res.status(response.status).json(response.data))
+      .catch(({ response }) => res.status(response.status).json(response.data));
+  } catch (error) {
+    console.error(error);
+    return res.status(500).json({
+      msg: "Internal Server Error",
+      status: 500,
+      error,
+    });
+  }
+});
+
 module.exports = router;

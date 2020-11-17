@@ -9,6 +9,7 @@ class OrdersEntry extends Component {
     order: {},
     message: "",
     is_loading: true,
+    open_options: false,
   };
   componentDidMount() {
     const token = sessionStorage.getItem("token");
@@ -19,10 +20,37 @@ class OrdersEntry extends Component {
       .then((response) =>
         this.setState({ order: response.data.order, is_loading: false })
       )
-      .catch(({ response }) => this.setState({ message: response.data.msg }));
+      .catch(({ response }) =>
+        this.setState({ message: response.data.msg, is_loading: false })
+      );
   }
+
+  cancelOrder = () => {
+    const token = sessionStorage.getItem("token");
+    this.setState({ is_loading: true });
+    axios
+      .patch(
+        `/api/orders/cancel?id=${this.state.order._id}`,
+        {},
+        {
+          headers: { "x-auth-token": token },
+        }
+      )
+      .then((response) =>
+        this.setState({
+          order: response.data.order,
+          is_loading: false,
+          open_options: false,
+        })
+      )
+      .catch(({ response }) => {
+        alert(response.data.msg);
+        this.setState({ is_loading: false, open_options: false });
+      });
+  };
+
   render() {
-    const { order, message, is_loading } = this.state;
+    const { order, message, is_loading, open_options } = this.state;
     const {
       _id,
       item,
@@ -192,6 +220,27 @@ class OrdersEntry extends Component {
                   </strong>
                   <span>php</span>
                 </div>
+              </div>
+            </div>
+            <div className="orders-list-entry-control">
+              {open_options ? (
+                <div className="orders-list-entry-control-options">
+                  <span>Cancel this order?</span>
+                  <button onClick={this.cancelOrder}>Yes</button>
+                </div>
+              ) : (
+                <div></div>
+              )}
+              <div className="orders-list-entry-control-button">
+                <button
+                  onClick={() =>
+                    this.setState({
+                      open_options: !this.state.open_options,
+                    })
+                  }
+                >
+                  {open_options ? "No" : "Cancel Order"}
+                </button>
               </div>
             </div>
           </React.Fragment>
