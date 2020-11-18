@@ -13,6 +13,7 @@ import Item from "./components/item/Item";
 import Checkout from "./components/checkout/Checkout";
 import Orders from "./components/orders/Orders";
 import ErrorPage from "./components/error/ErrorPage";
+import Disclaimer from "./components/Disclaimer";
 
 const App = () => {
   return (
@@ -22,20 +23,24 @@ const App = () => {
           <Route exact path="/">
             <NavBar />
             <Home />
+            <Disclaimer />
           </Route>
 
           <Route exact path="/verify">
             <Verify />
+            <Disclaimer />
           </Route>
 
           <Route exact path="/account">
             <NavBar />
             <Account />
+            <Disclaimer />
           </Route>
 
           <Route exact path="/orders">
             <NavBar />
             <Orders />
+            <Disclaimer />
           </Route>
 
           <Route
@@ -45,6 +50,7 @@ const App = () => {
               <>
                 <NavBar />
                 <Store {...props} />
+                <Disclaimer />
               </>
             )}
           />
@@ -56,17 +62,20 @@ const App = () => {
               <>
                 <NavBar />
                 <Item {...props} />
+                <Disclaimer />
               </>
             )}
           />
           <Route exact path="/checkout">
             <NavBar />
             <Checkout />
+            <Disclaimer />
           </Route>
 
           <Route exact path="*">
             <NavBar />
             <ErrorPage />
+            <Disclaimer />
           </Route>
         </Switch>
       </Router>
