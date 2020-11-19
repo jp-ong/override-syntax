@@ -80,7 +80,9 @@ class OrdersEntry extends Component {
           return "pending";
       }
     };
-    return (
+    return message ? (
+      <React.Fragment />
+    ) : (
       <div className="orders-list-entry">
         {is_loading ? (
           <div className="orders-list-entry-spinner">
