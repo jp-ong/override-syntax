@@ -70,6 +70,7 @@ a {
 }
 
 .container {
+  position: relative;
   padding: 1rem 2vw;
   margin-top: 1rem;
 }
@@ -94,6 +95,32 @@ img.brand {
   font-size: 0.75rem;
   opacity: 0.5;
   z-index: 999;
+}
+
+.breadcrumbs {
+  margin-bottom: 0.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  &-link {
+    font-size: 0.875vmax;
+    & > a {
+      color: lighten($color: $dark, $amount: 15);
+      font-weight: 300;
+      &.active,
+      &:hover {
+        color: $secondary;
+        font-weight: 400;
+      }
+      // &:hover {
+      //   color: $secondary;
+      // }
+    }
+    & > span {
+      margin: 0 1vw;
+      opacity: 0.25;
+    }
+  }
 }
 
 @import "animations";

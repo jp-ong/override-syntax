@@ -11,6 +11,7 @@ const CheckoutInfo = ({
       <div className="checkout-info">
         <div className="checkout-info-header">
           <h2>ENTER DETAILS</h2>
+          <h5>1/2</h5>
         </div>
         <div className="checkout-info-section">
           <div className="checkout-info-section-label">Shipping Address</div>

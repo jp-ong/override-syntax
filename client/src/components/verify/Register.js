@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Spinner from "../Spinner";
+import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { registerUser, clearFeedbacks } from "../../redux/actions/userActions";
@@ -105,6 +106,7 @@ export class Register extends Component {
           >
             REGISTER
           </button>
+          <Link to="/">Skip Register and go to Main Page</Link>
         </div>
         {user_loading ? (
           <div className="verify-form-spinner">

@@ -91,7 +91,7 @@ export class AccountPassword extends Component {
             )}
           </div>
           <div className="account-section-footer-control">
-            {message.password ? (
+            {message.password || user_loading ? (
               <Spinner />
             ) : (
               <button

@@ -36,7 +36,10 @@ const CheckoutConfirm = ({
   return (
     <React.Fragment>
       <div className="checkout-confirm">
-        <div className="checkout-confirm-header">REVIEW YOUR ORDER</div>
+        <div className="checkout-confirm-header">
+          <h2>REVIEW YOUR ORDER</h2>
+          <h5>2/2</h5>
+        </div>
         <div className="checkout-confirm-section">
           <div className="checkout-confirm-section-label">Shipping to</div>
           <div className="checkout-confirm-section-content">

@@ -8,6 +8,9 @@ const User = require("../../models/User");
 const auth = require("../../middleware/auth");
 
 const date = new Date().toISOString();
+const emailRegex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+const nameRegex = /^([a-z]+\s)*[a-z]+$/i;
+const phoneRegex = /^[0-9]/;
 
 router.get("/", (req, res) => {
   try {
@@ -72,7 +75,16 @@ router.post("/register", (req, res) => {
         .status(400)
         .json({ msg: "Please enter all fields.", status: 400 });
 
-    const emailRegex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+    if (!nameRegex.test(firstname))
+      return res
+        .status(400)
+        .json({ msg: "Invalid first name detected.", status: 400 });
+
+    if (!nameRegex.test(lastname))
+      return res
+        .status(400)
+        .json({ msg: "Invalid last name detected.", status: 400 });
+
     if (!emailRegex.test(email))
       return res
         .status(400)
@@ -291,10 +303,35 @@ router.patch("/profile", auth, (req, res) => {
       if (!user) {
         return res.status(404).json({ msg: "User not found.", status: 404 });
       } else {
-        if (firstname) user.fullname.firstname = firstname;
-        if (lastname) user.fullname.lastname = lastname;
+        if (firstname) {
+          if (!nameRegex.test(firstname)) {
+            return res
+              .status(400)
+              .json({ msg: "Invalid first name detected.", status: 400 });
+          } else {
+            user.fullname.firstname = firstname;
+          }
+        }
+        if (lastname) {
+          if (!nameRegex.test(lastname)) {
+            return res
+              .status(400)
+              .json({ msg: "Invalid first name detected.", status: 400 });
+          } else {
+            user.fullname.lastname = lastname;
+          }
+        }
         if (birthdate) user.birthdate = birthdate;
-        if (mobile_number) user.mobile_number = mobile_number;
+
+        if (mobile_number) {
+          if (!phoneRegex.test(mobile_number) || mobile_number.length < 11) {
+            return res
+              .status(400)
+              .json({ msg: "Invalid mobile number detected.", status: 400 });
+          } else {
+            user.mobile_number = mobile_number;
+          }
+        }
         if (house_number) user.full_address.house_number = house_number;
         if (street_name) user.full_address.street_name = street_name;
         if (province) user.full_address.province = province;

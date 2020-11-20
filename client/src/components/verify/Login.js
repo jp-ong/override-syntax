@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Spinner from "../Spinner";
+import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { loginUser, clearFeedbacks } from "../../redux/actions/userActions";
@@ -78,6 +79,7 @@ export class Login extends Component {
           >
             LOGIN
           </button>
+          <Link to="/">Skip Login and go to Main Page</Link>
         </div>
         {user_loading ? (
           <div className="verify-form-spinner">

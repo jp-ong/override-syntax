@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Container from "../Container";
 import Spinner from "../Spinner";
+import Breadcrumbs from "../Breadcrumbs";
 
 import axios from "axios";
 import { Link } from "react-router-dom";
@@ -72,6 +73,7 @@ class Item extends Component {
     const { logged_in } = this.props.user;
     const { item, quantity, image, is_loading } = this.state;
     const {
+      _id,
       item_name,
       item_description,
       item_price,
@@ -87,6 +89,14 @@ class Item extends Component {
     };
     return (
       <Container>
+        <Breadcrumbs
+          show={!is_loading}
+          crumbs={[
+            { link: `/`, text: `Home` },
+            { link: `/store/${category}`, text: category },
+            { link: `/item/${_id}`, text: item_name },
+          ]}
+        />
         <div className="item">
           {is_loading ? (
             <div className="item-spinner">

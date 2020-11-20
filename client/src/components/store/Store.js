@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import Container from "../Container";
 import Spinner from "../Spinner";
+import Breadcrumbs from "../Breadcrumbs";
+
 import StoreSearch from "./StoreSearch";
 import StoreCategories from "./StoreCategories";
 import StoreTags from "./StoreTags";
@@ -78,6 +80,13 @@ export class Store extends Component {
     const { items, items_loading } = this.props.item;
     return (
       <Container>
+        <Breadcrumbs
+          show={true}
+          crumbs={[
+            { link: `/`, text: `Home` },
+            { link: `/store/${active_category}`, text: active_category },
+          ]}
+        />
         <div className="store">
           <div className="store-control">
             <StoreSearch tickSearch={this.tickSearch} keyword={keyword} />

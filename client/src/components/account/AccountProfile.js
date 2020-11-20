@@ -20,7 +20,7 @@ export class AccountProfile extends Component {
     city: "",
     province: "",
     barangay: "",
-    birthdate: "",
+    birthdate: null,
     mobile_number: "",
   };
 
@@ -80,12 +80,15 @@ export class AccountProfile extends Component {
             </div>
             <div className="account-section-form-group-inputs">
               <input
-                type="text"
+                type="date"
                 name="birthdate"
-                placeholder="MM/DD/YYY"
                 value={
                   this.state.birthdate ||
-                  new Date(birthdate).toLocaleDateString()
+                  new Date(birthdate).toLocaleDateString("fr-CA", {
+                    year: "numeric",
+                    month: "2-digit",
+                    day: "2-digit",
+                  })
                 }
                 onChange={this.tick}
               />
@@ -169,7 +172,7 @@ export class AccountProfile extends Component {
             )}
           </div>
           <div className="account-section-footer-control">
-            {message.profile ? (
+            {message.profile || user_loading ? (
               <Spinner />
             ) : (
               <button
