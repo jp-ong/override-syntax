@@ -42,6 +42,7 @@ const StoreList = ({
           case "sortNdn":
             return b.item_price - a.item_price;
         }
+        return;
       });
   return (
     <div className="store-list">

@@ -16,28 +16,28 @@ const StoreSort = ({ toggleSort }) => {
             className="store-control-sort-menu-option"
             onClick={() => toggleSort("sortAup")}
           >
-            <span>Alphabetical</span>
+            <span>Alphabetical A-Z</span>
             <i className="fas fa-sort-alpha-down" />
           </div>
           <div
             className="store-control-sort-menu-option"
             onClick={() => toggleSort("sortAdn")}
           >
-            <span>Alphabetical</span>
+            <span>Alphabetical Z-A</span>
             <i className="fas fa-sort-alpha-up" />
           </div>
           <div
             className="store-control-sort-menu-option"
             onClick={() => toggleSort("sortNup")}
           >
-            <span>Price</span>
+            <span>Price Low-High</span>
             <i className="fas fa-sort-numeric-down" />
           </div>
           <div
             className="store-control-sort-menu-option"
             onClick={() => toggleSort("sortNdn")}
           >
-            <span>Price</span>
+            <span>Price High-Low</span>
             <i className="fas fa-sort-numeric-up" />
           </div>
         </div>

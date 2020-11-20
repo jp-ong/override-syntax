@@ -8,7 +8,7 @@ const Breadcrumbs = ({ show, crumbs }) => {
   return show ? (
     <div className="breadcrumbs">
       {crumbs.map((crumb, index) => (
-        <div className="breadcrumbs-link">
+        <div className="breadcrumbs-link" key={index}>
           <Link
             to={crumb.link}
             className={isLast(crumbs, index) ? "active" : ""}

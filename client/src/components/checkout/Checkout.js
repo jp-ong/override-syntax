@@ -73,7 +73,7 @@ export class Checkout extends Component {
 
   render() {
     const { item, new_address, quantity, page, payment_method } = this.state;
-    const { user, user_loading, logged_in, message, error } = this.props.user;
+    const { user, user_loading, message, error } = this.props.user;
     const { full_address } = user;
     return (
       <Container>

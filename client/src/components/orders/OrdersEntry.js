@@ -61,7 +61,6 @@ class OrdersEntry extends Component {
       payment_method,
       paid_on,
       delivered_on,
-      created_at,
     } = order;
     const formatPrice = (n) => {
       return n
