@@ -13,7 +13,7 @@ router.get("/", auth, (req, res) => {
       .get(`${url}/api/orders/order?id=${req.query.id}`)
       .then((response) => res.status(response.status).json(response.data))
       .catch(({ response }) => {
-        if (response.status === 404) {
+        if (response.status === 404 || response.status === 400) {
           User.findById(req.user.id, (error, user) => {
             if (error) {
               return res
@@ -28,6 +28,8 @@ router.get("/", auth, (req, res) => {
               });
             }
           });
+        } else {
+          return res.status(response.status).json(response.data);
         }
       });
   } catch (error) {
