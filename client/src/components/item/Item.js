@@ -143,7 +143,9 @@ class Item extends Component {
                     </div>
                   </div>
                 ) : (
-                  <React.Fragment />
+                  <div className="item-info-row">
+                    <span>Sign-in to purchase this item</span>
+                  </div>
                 )}
               </div>
             </React.Fragment>
