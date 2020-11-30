@@ -152,7 +152,7 @@ class OrdersEntry extends Component {
                 <div>
                   <strong className={colorClass(payment_status)}>
                     {paid_on === null
-                      ? "- - - "
+                      ? "- - -"
                       : new Date(paid_on).toLocaleString()}
                   </strong>
                 </div>
@@ -180,10 +180,9 @@ class OrdersEntry extends Component {
               <div className="orders-list-entry-row-col">
                 <div>
                   <span>Subtotal</span>
-                </div>{" "}
+                </div>
                 <div>
                   <strong>{formatPrice(item.price * item.quantity)}</strong>
-
                   <span>php</span>
                 </div>
               </div>
@@ -223,27 +222,32 @@ class OrdersEntry extends Component {
                 </div>
               </div>
             </div>
-            <div className="orders-list-entry-control">
-              {open_options ? (
-                <div className="orders-list-entry-control-options">
-                  <span>Cancel this order?</span>
-                  <button onClick={this.cancelOrder}>Yes</button>
+            {order_status === "Processing" &&
+            payment_status === "Processing" ? (
+              <div className="orders-list-entry-control">
+                {open_options ? (
+                  <div className="orders-list-entry-control-options">
+                    <span>Cancel this order?</span>
+                    <button onClick={this.cancelOrder}>Yes</button>
+                  </div>
+                ) : (
+                  <div></div>
+                )}
+                <div className="orders-list-entry-control-button">
+                  <button
+                    onClick={() =>
+                      this.setState({
+                        open_options: !this.state.open_options,
+                      })
+                    }
+                  >
+                    {open_options ? "No" : "Cancel Order"}
+                  </button>
                 </div>
-              ) : (
-                <div></div>
-              )}
-              <div className="orders-list-entry-control-button">
-                <button
-                  onClick={() =>
-                    this.setState({
-                      open_options: !this.state.open_options,
-                    })
-                  }
-                >
-                  {open_options ? "No" : "Cancel Order"}
-                </button>
               </div>
-            </div>
+            ) : (
+              <React.Fragment />
+            )}
           </React.Fragment>
         )}
       </div>
