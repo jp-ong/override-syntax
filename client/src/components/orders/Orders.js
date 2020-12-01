@@ -36,6 +36,10 @@ export class Orders extends Component {
           <div className="orders-list">
             {user_loading ? (
               <React.Fragment />
+            ) : orders_list.length === 0 ? (
+              <div className="orders-list-entry">
+                <span>You have no orders at the moment.</span>
+              </div>
             ) : (
               orders_list
                 .reverse()
